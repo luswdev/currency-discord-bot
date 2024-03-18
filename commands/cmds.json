@@ -1,0 +1,7 @@
+[
+    {
+        "info": "Get currency exchange rate",
+        "value": "get-currency",
+        "arguments": ["currency"]
+    }
+]

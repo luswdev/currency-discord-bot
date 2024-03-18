@@ -1,0 +1,17 @@
+{
+  "name": "currency-bot",
+  "version": "1.0.0",
+  "description": "get currency exchange rate from discord",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_PATH=. node index.js",
+    "test": "NODE_PATH=. node -e 'require(\"utils/UtlOpenExchangeRate.js\").test()'"
+  },
+  "author": "LuSkywalker",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "discord.js": "^14.14.1",
+    "node-schedule": "^2.1.1"
+  }
+}
