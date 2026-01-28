@@ -26,6 +26,14 @@ class CmdList {
                 strOption.setName(opt.name)
                     .setDescription(opt.info)
                 scb.addStringOption(strOption)
+            } else if (opt.type == 'integer') {
+                scb.addIntegerOption( (option) =>
+                    option.setName(opt.name)
+                        .setDescription(opt.info)
+                        .setMinValue(opt.min ?? Number.MIN_SAFE_INTEGER)
+                        .setMaxValue(opt.max ?? Number.MAX_SAFE_INTEGER)
+                        .setRequired(opt.required ?? false)
+                )
             }
         }
 

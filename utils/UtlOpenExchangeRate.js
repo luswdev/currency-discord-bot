@@ -26,11 +26,22 @@ class OpenExchangeRate {
         })
     }
 
-    getRate(_currency) {
-        const base2USD = this.data.rates[_currency] // _currency / USD
-        const USD2TWD = this.data.rates['TWD']      // TWD / USD
+    /**
+     * Get exchanged rate between two currencies
+     * @param {*} _currency1 input currency
+     * @param {*} _currency2 target currency
+     * @returns exchange rate from _currency1 to _currency2
+     */
+    getRate(_currency1, _currency2) {
+        const curI2USD = this.data.rates[_currency1]        // _currency1 / USD
+        const curII2USD = this.data.rates[_currency2]       // _currency2 / USD
 
-        return base2USD / USD2TWD                   // _currency / TWD
+        //                                                                   1
+        //                                                            --------------
+        // _currency2     _currency2         USD        _currency2      _currency1
+        // ----------- = ------------ x ------------ = ------------ x  ------------
+        // _currency1         USD        _currency1         USD            USD
+        return curII2USD * (1 / curI2USD)                   // _currency2 / _currency1
     }
 }
 

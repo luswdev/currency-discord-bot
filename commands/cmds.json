@@ -2,6 +2,6 @@
     {
         "info": "Get currency exchange rate",
         "value": "get-currency",
-        "arguments": ["currency"]
+        "arguments": ["input_currency", "target_currency", "price"]
     }
 ]
