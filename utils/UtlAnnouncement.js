@@ -29,8 +29,9 @@ class Announcement {
     }
 
     scheduler () {
-        schedule.scheduleJob('30 11 * * *', async () => {
+        schedule.scheduleJob('30 8 * * *', async () => {
             this.send('USD')
+            this.send('KRW')
         })
     }
 
