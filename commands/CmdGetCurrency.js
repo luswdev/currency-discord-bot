@@ -7,10 +7,9 @@ const CmdBase = require('commands/CmdBase.js')
 class CmdGetCurrency extends CmdBase {
 
     constructor () {
-        const currencies = require('commands/currencies.json')
         super('get-currency', [
-            { type: 'string', name: 'input_currency', info: 'from which currency', choices: currencies },
-            { type: 'string', name: 'target_currency', info: 'to which currency', choices: currencies },
+            { type: 'string', name: 'input_currency', info: 'from which currency'},
+            { type: 'string', name: 'target_currency', info: 'to which currency'},
             { type: 'integer', name: 'price', info: 'total price to calculate', min: 0, required: false },
         ])
     }
