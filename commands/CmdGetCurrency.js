@@ -4,6 +4,8 @@ const { EmbedBuilder } = require('discord.js')
 
 const CmdBase = require('commands/CmdBase.js')
 
+const currencyList = require('data/currencies.json')
+
 class CmdGetCurrency extends CmdBase {
 
     constructor () {
@@ -30,7 +32,7 @@ class CmdGetCurrency extends CmdBase {
             .setTimestamp()
 
         const rate = _client.ore.getRate(_input_currency, _target_currency) // _target_currency / _input_currency
-        embed.setDescription(`${_price} ${_input_currency} = ${(rate * _price).toFixed(6)} ${_target_currency}\n`)
+        embed.setDescription(`${_price} :${currencyList[_input_currency]}:${_input_currency} = ${(rate * _price).toFixed(6)} :${currencyList[_target_currency]}:${_target_currency}\n`)
 
         return { embeds: [embed] }
     }
