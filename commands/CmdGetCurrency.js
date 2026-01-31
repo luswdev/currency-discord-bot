@@ -32,8 +32,11 @@ class CmdGetCurrency extends CmdBase {
             .setTimestamp()
 
         const rate = _client.ore.getRate(_input_currency, _target_currency) // _target_currency / _input_currency
-        embed.setDescription(`${_price} :${currencyList[_input_currency]}:\`${_input_currency}\` = \`${(rate * _price).toFixed(6)}\` :${currencyList[_target_currency]}:\`${_target_currency}\`\n`)
 
+        let description = `${_price} :${currencyList[_input_currency]}:\`${_input_currency}\` = \`${(rate * _price).toFixed(6)}\` :${currencyList[_target_currency]}:\`${_target_currency}\`\n`
+        description += `\nlast updated at <t:${_client.ore.getUpdateTime()}:F>`
+
+        embed.setDescription(description)
         return { embeds: [embed] }
     }
 }

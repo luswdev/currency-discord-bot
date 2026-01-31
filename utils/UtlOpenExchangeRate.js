@@ -20,8 +20,8 @@ class OpenExchangeRate {
     }
 
     scheduler () {
-        log.write('start fetch openexchangerates.org api every 6 am')
-        schedule.scheduleJob('0 6 * * *', async () => {
+        log.write('start fetch openexchangerates.org api every hour')
+        schedule.scheduleJob('0 * * * *', async () => {
             await this.fetch()
         })
     }
@@ -42,6 +42,10 @@ class OpenExchangeRate {
         // ----------- = ------------ x ------------ = ------------ x  ------------
         // _currency1         USD        _currency1         USD            USD
         return curII2USD * (1 / curI2USD)                   // _currency2 / _currency1
+    }
+
+    getUpdateTime() {
+        return this.data.timestamp
     }
 }
 
