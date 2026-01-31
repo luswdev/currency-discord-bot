@@ -28,9 +28,9 @@ class Announcement {
         for (let currency of _currencies) {
             const rate = this.client.ore.getRate("TWD", currency)
             if (rate > 1) {
-                announcements += `1 :${currencyList["TWD"]}:TWD= \`${rate.toFixed(6)}\` :${currencyList[currency]}:${currency}\n`
+                announcements += `1 :${currencyList["TWD"]}:\`TWD\` = \`${rate.toFixed(6)}\` :${currencyList[currency]}:\`${currency}\`\n`
             } else {
-                announcements += `1 :${currencyList[currency]}:${currency} = \`${(1/rate).toFixed(6)}\`:${currencyList["TWD"]}:TWD \n`
+                announcements += `1 :${currencyList[currency]}:\`${currency}\` = \`${(1/rate).toFixed(6)}\` :${currencyList["TWD"]}:\`TWD\`\n`
             }
         }
         embed.setDescription(announcements)
