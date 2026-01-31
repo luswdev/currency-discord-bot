@@ -9,7 +9,10 @@ class Announcement {
 
     constructor (_channel, _client) {
         this.client = _client
-        _client.channels.fetch(_channel).then( (ch) => this.channel = ch)
+        _client.channels.fetch(_channel).then( (ch) => {
+            this.channel = ch
+            this.send(['USD', 'KRW'])
+        })
     }
 
     send (_currencies) {
